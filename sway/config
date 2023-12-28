@@ -23,7 +23,7 @@ set $lterm foot
 #set $menu exec $lterm -a launcher -e /usr/share/sway/sway-launcher-desktop.sh
 #set $menu exec $lterm -a launcher -e env GLYPH_COMMAND="" GLIPH_DESKTOP="" GLYPH_PROMPT="? " HIST_FILE="" /usr/share/sway/sway-launcher-desktop.sh 3>> ~/sway-launcher-desktop.log
 
-set $menu exec wofi --gtk-dark --location top --show run
+set $menu exec wofi --location center --show run
 
 include /etc/sway/config-vars.d/*
 

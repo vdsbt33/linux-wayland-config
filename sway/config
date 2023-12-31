@@ -206,17 +206,19 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym $mod+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+bindsym $mod+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
 #
 # Screen capture
 #
-set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard, 5 swappy
+set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard
 mode "$screenshot" {
     bindsym 1 exec 'grim -g "$(slurp)" ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
     bindsym 2 exec 'grim ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
     bindsym 3 exec 'grim -g "$(slurp)" - | wl-copy', mode "default"
     bindsym 4 exec 'grim - | wl-copy', mode "default"
-    bindsym 5 exec 'grim -g "$(slurp)" - | swappy -f -', mode "default"
 
 
 # back to normal: Enter or Escape

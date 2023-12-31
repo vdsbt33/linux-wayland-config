@@ -4,7 +4,6 @@
 font pango:FiraCode Nerd Font 11
 
 ### Variables
-#
 # Logo key. Use Mod1 for Alt. Mod4 for Windows key
 set $mod Mod1
 # Home row direction keys, like vim
@@ -208,7 +207,31 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
+#
+# Screen capture
+#
+set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard, 5 swappy
+mode "$screenshot" {
+    bindsym 1 exec 'grim -g "$(slurp)" ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
+    bindsym 2 exec 'grim ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
+    bindsym 3 exec 'grim -g "$(slurp)" - | wl-copy', mode "default"
+    bindsym 4 exec 'grim - | wl-copy', mode "default"
+    bindsym 5 exec 'grim -g "$(slurp)" - | swappy -f -', mode "default"
+
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Print mode "default"
+}
+
+bindsym Print mode "$screenshot"
+
+
 for_window [shell="xwayland"] title_format "[XWayland] %title"
+
+# Make sharing indicator (Discord) float
+for_window [title="Firefox . Sharing Indicator"] kill;
 
 #
 # Status Bar:

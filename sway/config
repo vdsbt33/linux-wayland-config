@@ -1,10 +1,10 @@
 # Read `man 5 sway` for a complete reference.
 
 #font pango:Fira Code Medium 11
-font pango:FiraCode Nerd Font 11
+font pango:FiraCode 11
 
 ### Variables
-# Logo key. Use Mod1 for Alt. Mod4 for Windows key
+# Modifier key. Use Mod1 for Alt. Mod4 for Windows key
 set $mod Mod1
 # Home row direction keys, like vim
 set $left h
@@ -150,9 +150,9 @@ set $lock_screen 'swaylock -f -c 000000DD'
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    # bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -257,8 +257,8 @@ bar {
 }
 
 # class                  border     backgr     text       indicator  child_border
-client.focused           #000000CC  #000000CC  #ffffffff  #000022CC  #000000CC
-client.focused_inactive  #000000CC  #000000CC  #ffffffff  #000011CC  #000000CC
+client.focused           #00000099  #00000099  #ffffffff  #00002299  #00000099 
+client.focused_inactive  #000000EE  #000000EE  #ffffffff  #000000EE  #000000EE
 client.unfocused         #000000EE  #000000EE  #ffffffff  #000000EE  #000000EE
 gaps inner 12px
 default_border normal 4
@@ -273,3 +273,14 @@ input "type:keyboard" {
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 include /etc/sway/config.d/*
+
+# Pulse defaults
+# Sink
+#exec pactl set-default-sink alsa_output.pci-0000_09_00.1.hdmi-stereo-extra2
+exec pactl set-sink-volume @DEFAULT_SINK@ 100%
+
+# Source
+#exec pactl set-default-source alsa_input.pci-0000_0b_00.3.analog-stereo.25
+exec pactl set-source-volume @DEFAULT_SOURCE@ 50%
+exec pactl set-source-mute @DEFAULT_SOURCE@ 1
+

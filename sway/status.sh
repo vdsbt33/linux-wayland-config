@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 uptime_formatted=$(uptime | cut -d ',' -f1 | cut -d ' ' -f4,5)
 
@@ -18,4 +18,4 @@ if [[ $(pactl get-source-mute @DEFAULT_SOURCE@) =~ "yes" ]]; then
 	input_icon="\uf131" # muted
 fi
 
-echo -e "\ueb2d $uptime_formatted   $output_icon $output_volume   $input_icon $input_volume   \ueab0 $date_formatted ($weekday_formatted)   \ue382 $time_formatted "
+echo -e "\ueb2d$uptime_formatted   $output_icon $output_volume   $input_icon $input_volume   \ueab0 $date_formatted ($weekday_formatted)   \ue382 $time_formatted "

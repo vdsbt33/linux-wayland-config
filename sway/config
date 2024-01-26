@@ -257,9 +257,9 @@ bar {
 }
 
 # class                  border     backgr     text       indicator  child_border
-client.focused           #00000099  #00000099  #ffffffff  #00002299  #00000099 
-client.focused_inactive  #000000EE  #000000EE  #ffffffff  #000000EE  #000000EE
-client.unfocused         #000000EE  #000000EE  #ffffffff  #000000EE  #000000EE
+client.focused           #000000EE  #000000EE  #ffffffff  #000022EE  #000000EE 
+client.focused_inactive  #00000099  #00000099  #ffffffff  #00000099  #00000099
+client.unfocused         #00000099  #00000099  #ffffffff  #00000099  #00000099
 gaps inner 12px
 default_border normal 4
 titlebar_padding 5 5
@@ -277,7 +277,7 @@ include /etc/sway/config.d/*
 # Pulse defaults
 # Sink
 #exec pactl set-default-sink alsa_output.pci-0000_09_00.1.hdmi-stereo-extra2
-exec pactl set-sink-volume @DEFAULT_SINK@ 100%
+exec pactl set-sink-volume @DEFAULT_SINK@ 50%
 
 # Source
 #exec pactl set-default-source alsa_input.pci-0000_0b_00.3.analog-stereo.25

@@ -22,14 +22,14 @@ set $lterm foot
 #set $menu exec $lterm -a launcher -e /usr/share/sway/sway-launcher-desktop.sh
 #set $menu exec $lterm -a launcher -e env GLYPH_COMMAND="" GLIPH_DESKTOP="" GLYPH_PROMPT="? " HIST_FILE="" /usr/share/sway/sway-launcher-desktop.sh 3>> ~/sway-launcher-desktop.log
 
-set $menu exec wofi --location center --show run
+set $menu exec wofi --location center --show drun
 
 include /etc/sway/config-vars.d/*
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/bg.jpg fill
+output * bg /usr/share/backgrounds/bg3.jpg fill
 #
 # Example configuration:
 #
@@ -244,6 +244,10 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
+	#swaybar_command waybar
+	#mode dock
+	#hidden_state hide
+	#mode hide
     status_command while ~/.config/sway/status.sh; do sleep 5; done
 
     colors {
@@ -257,7 +261,7 @@ bar {
 }
 
 # class                  border     backgr     text       indicator  child_border
-client.focused           #000000EE  #000000EE  #ffffffff  #000022EE  #000000EE 
+client.focused           #55555533  #55555533  #ffffffff  #00000099  #55555533 
 client.focused_inactive  #00000099  #00000099  #ffffffff  #00000099  #00000099
 client.unfocused         #00000099  #00000099  #ffffffff  #00000099  #00000099
 gaps inner 12px

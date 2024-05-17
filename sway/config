@@ -281,7 +281,7 @@ include /etc/sway/config.d/*
 # Pulse defaults
 # Sink
 #exec pactl set-default-sink alsa_output.pci-0000_09_00.1.hdmi-stereo-extra2
-exec pactl set-sink-volume @DEFAULT_SINK@ 50%
+exec pactl set-sink-volume @DEFAULT_SINK@ 25%
 
 # Source
 #exec pactl set-default-source alsa_input.pci-0000_0b_00.3.analog-stereo.25
